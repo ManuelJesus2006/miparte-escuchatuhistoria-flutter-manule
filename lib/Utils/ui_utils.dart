@@ -1,6 +1,5 @@
 import 'package:escucha_tu_historia_front/models/ruta_model.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 
 class UIUtils {
@@ -28,33 +27,6 @@ class UIUtils {
       default:
         return "unknown";
     }
-  }
-
-  // Capitaliza la primera letra de un texto y deja el resto en minusculas
-  static String capitalizeTag(String tag) {
-    if (tag.isEmpty) return tag;
-    return tag[0].toUpperCase() + tag.substring(1).toLowerCase();
-  }
-
-  // Formatea números grandes añadiendo el sufijo K o M (ej: 1500 -> 1.5K)
-  static String formatNumber(int number) {
-    if (number >= 1000000) {
-      return '${(number / 1000000).toStringAsFixed(1)}M';
-    } else if (number >= 1000) {
-      return '${(number / 1000).toStringAsFixed(1)}K';
-    } else {
-      return number.toString();
-    }
-  }
-
-  static String formatearFecha(DateTime fecha) {
-    final diff = DateTime.now().difference(fecha);
-    if (diff.inMinutes < 1) return 'Hace un momento';
-    if (diff.inMinutes < 60) return 'Hace ${diff.inMinutes} min';
-    if (diff.inHours < 24) return 'Hace ${diff.inHours} h';
-    if (diff.inDays == 1) return 'Ayer';
-    if (diff.inDays < 7) return 'Hace ${diff.inDays} días';
-    return DateFormat('dd/MM/yyyy').format(fecha);
   }
 
   // Utilidades de UI
